@@ -19,11 +19,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Example.html" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-1.11.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.2.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
     <Content Include="Stopwatch.js" />
     <Content Include="Stopwatch.min.js">
       <DependentUpon>Stopwatch.js</DependentUpon>
     </Content>
     <Content Include="web.config" />
+    <Content Include="Scripts\jquery-1.11.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Stopwatch.js.map" />
