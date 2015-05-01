@@ -7,16 +7,19 @@
         return this.isRunning;
     }
 
-    public static IsHighResolution(): boolean {
-        if (typeof performance !== "undefined" && typeof performance.now === "function") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    public static IsHighResolution: boolean;
 
     public ElapsedMilliseconds(): number {
         return Math.round(this.GetRawElapsedMilliseconds() * 10000) / 10000;
+    }
+
+    //static constructor
+    static initialize() {
+        if (typeof performance !== "undefined" && typeof performance.now === "function") {
+            Stopwatch.IsHighResolution = true;
+        } else {
+            Stopwatch.IsHighResolution = false;
+        }
     }
 
     public constructor() {
@@ -73,7 +76,7 @@
     }
 
     private GetTimestamp(): number {
-        if (Stopwatch.IsHighResolution()) {
+        if (Stopwatch.IsHighResolution) {
             return performance.now();
         }
         else {
@@ -81,3 +84,4 @@
         }
     }
 }
+Stopwatch.initialize();

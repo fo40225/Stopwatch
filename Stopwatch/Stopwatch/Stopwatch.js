@@ -5,16 +5,17 @@ var Stopwatch = (function () {
     Stopwatch.prototype.IsRunning = function () {
         return this.isRunning;
     };
-    Stopwatch.IsHighResolution = function () {
-        if (typeof performance !== "undefined" && typeof performance.now === "function") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
     Stopwatch.prototype.ElapsedMilliseconds = function () {
         return Math.round(this.GetRawElapsedMilliseconds() * 10000) / 10000;
+    };
+    //static constructor
+    Stopwatch.initialize = function () {
+        if (typeof performance !== "undefined" && typeof performance.now === "function") {
+            Stopwatch.IsHighResolution = true;
+        }
+        else {
+            Stopwatch.IsHighResolution = false;
+        }
     };
     Stopwatch.prototype.Start = function () {
         if (!this.isRunning) {
@@ -58,7 +59,7 @@ var Stopwatch = (function () {
         return timeElapsed;
     };
     Stopwatch.prototype.GetTimestamp = function () {
-        if (Stopwatch.IsHighResolution()) {
+        if (Stopwatch.IsHighResolution) {
             return performance.now();
         }
         else {
@@ -67,4 +68,5 @@ var Stopwatch = (function () {
     };
     return Stopwatch;
 })();
+Stopwatch.initialize();
 //# sourceMappingURL=Stopwatch.js.map
