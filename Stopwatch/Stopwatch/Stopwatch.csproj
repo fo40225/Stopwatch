@@ -19,6 +19,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Example.html" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Stopwatch.js" />
     <Content Include="Stopwatch.min.js">
       <DependentUpon>Stopwatch.js</DependentUpon>
@@ -30,6 +34,7 @@
     <Content Include="Stopwatch.min.js.map">
       <DependentUpon>Stopwatch.min.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -69,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
-    <TypeScriptTarget>ES3</TypeScriptTarget>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
